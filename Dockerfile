@@ -6,6 +6,9 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 COPY src ./src
 
+# Dar permisos de ejecución a mvnw
+RUN chmod +x mvnw
+
 RUN ./mvnw dependency:go-offline
 
 RUN ./mvnw clean package -DskipTests
